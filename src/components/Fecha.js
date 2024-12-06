@@ -1,12 +1,11 @@
 import React, { useState } from 'react'
-import { Text, Button, View, StyleSheet } from 'react-native'
+import { Text,  View, StyleSheet, Image } from 'react-native'
 import DateTimePickerModal from 'react-native-modal-datetime-picker';
+import { Button } from 'react-native-elements';
 
-export const Fecha = () => {
+export const Fecha = ({setSelectedDate, setDayOfWeek} ) => {
 
     const [isDatePickerVisible, setDatePickerVisibility] = useState(false);
-    const [selectedDate, setSelectedDate] = useState(null);
-    const [dayOfWeek, setDayOfWeek] = useState(null);
     
     const showDatePicker = () => setDatePickerVisibility(true);
 
@@ -23,10 +22,10 @@ export const Fecha = () => {
 
   return (
     <View style={styles.pickerContainer}>
-        <Text style={styles.text}>
-          {selectedDate ? ' ' + dayOfWeek + ' ' + selectedDate.toLocaleDateString()+ ' ' : 'No hay fecha seleccionada'}
-        </Text>
-        <Button title="Seleccionar Fecha" onPress={showDatePicker} />
+
+        
+        
+        <Button title="Seleccionar Fecha" onPress={showDatePicker} buttonStyle={{ width: 220, backgroundColor: '#1199ff' }} />
         <DateTimePickerModal
           isVisible={isDatePickerVisible}
           mode="date"
@@ -39,12 +38,8 @@ export const Fecha = () => {
 
 const styles = StyleSheet.create({
     pickerContainer: {
-      marginBottom: 40,
+      marginBottom: 18,
       alignItems: 'center',
-    },
-    text: {
-      fontSize: 18,
-      marginBottom: 10,
-      textAlign: 'center',
+      width: 220,
     },
   });

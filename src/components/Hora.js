@@ -4,28 +4,18 @@ import { useEffect, useState } from "react";
 
 export const Hora = ({ selector, setTime }) => {
   const [isTimePickerVisible, setTimePickerVisibility] = useState(false);
-  const [selectedTime, setSelectedTime] = useState(null);
 
   const showTimePicker = () => setTimePickerVisibility(true);
   const hideTimePicker = () => setTimePickerVisibility(false);
 
-  const handleConfirmTime = (time) => {
-    setSelectedTime(time);
+  const handleConfirmTime =  (time) => {
     setTime(time);
     hideTimePicker()
 ;  };
 
   return (
     <View style={styles.pickerContainer}>
-      <Text style={styles.text}>
-        {selectedTime
-          ? `${selector}: ${selectedTime.toLocaleTimeString([], {
-              hour: "2-digit",
-              minute: "2-digit",
-            })}`
-          : "No hay hora seleccionada"}
-      </Text>
-      <Button title={`Seleccionar Hora de ${selector}`} onPress={showTimePicker} />
+      <Button title={` ${selector}`} onPress={showTimePicker} />
       <DateTimePickerModal
         isVisible={isTimePickerVisible}
         mode="time"
@@ -40,6 +30,7 @@ export const Hora = ({ selector, setTime }) => {
 const styles = StyleSheet.create({
   pickerContainer: {
     marginBottom: 30,
+    width: 100,
   },
   text: {
     fontSize: 18,
