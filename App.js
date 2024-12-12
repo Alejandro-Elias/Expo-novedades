@@ -8,7 +8,7 @@ export default function App() {
       <ScrollView>
         <Main />
       </ScrollView>      
-      <StatusBar style="inverted" backgroundColor='#0000ff' />
+      <StatusBar style="inverted" backgroundColor='#1199ff' />
     </SafeAreaProvider>
   );
 }
